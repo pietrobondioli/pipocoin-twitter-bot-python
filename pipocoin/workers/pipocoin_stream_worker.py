@@ -1,5 +1,6 @@
 import tweepy
 
+
 class PipocoinStreamListener(tweepy.StreamListener):
 
     def __init__(self, status_handler):
@@ -18,7 +19,7 @@ class PipocoinStreamListener(tweepy.StreamListener):
 def start_worker(auth, status_handler, tracked_words, is_Async):
     stream_listener = PipocoinStreamListener(status_handler)
     stream = tweepy.Stream(
-      auth = auth,
-      listener = stream_listener
+        auth=auth,
+        listener=stream_listener
     )
-    stream.filter(track = tracked_words, is_async = is_Async)
+    stream.filter(track=tracked_words, is_async=is_Async)
