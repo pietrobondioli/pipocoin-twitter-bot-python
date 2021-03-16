@@ -1,5 +1,8 @@
 import re
 
+REGEX_GET_COMMAND_STRING = re.compile(r'\-{1}[\w\s]*\-', re.IGNORECASE)
+REGEX_GET_COMMAND_STACK = re.compile(r'\-\s|\s|\-', re.IGNORECASE)
+
 
 def get_command_stack(status):
     command_string = get_command_string_from_status(status)
@@ -8,14 +11,13 @@ def get_command_stack(status):
 
 
 def get_command_string_from_status(text):
-    REGEX = re.compile(r'\-{1}[\w\s]*\-', re.IGNORECASE)
-    command_string = REGEX.findall(text)[0]
+    command_string = REGEX_GET_COMMAND_STRING.findall(text)[0]
     return command_string
 
 
 def get_command_stack_from_command_string(text):
-    REGEX = re.compile(r'\-\s|\s|\-', re.IGNORECASE)
-    command_stack = filter_empty_commands_from_stack(REGEX.split(text))
+    command_stack = REGEX_GET_COMMAND_STACK.split(text)
+    command_stack = filter_empty_commands_from_stack(command_stack)
     return command_stack
 
 

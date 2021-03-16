@@ -1,12 +1,12 @@
 from configs.tweepy import API
 from workers import pipocoin_stream_worker
-from utils.loggers import api_info_logger
+from utils import loggers_util
 from controllers import status_controller
 
 
 def main():
-    api_info_logger.log_authenticated_user(API)
-    api_info_logger.log_twitter_configuration(API)
+    loggers_util.log_authenticated_user(API)
+    loggers_util.log_twitter_configuration(API)
     pipocoin_stream_worker.start_worker(
         auth=API.auth,
         status_handler=status_controller.status_handler,
