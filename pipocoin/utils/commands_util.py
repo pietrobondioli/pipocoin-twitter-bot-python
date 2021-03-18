@@ -1,6 +1,6 @@
 import re
 
-REGEX_GET_COMMAND_STRING = re.compile(r'\-{1}[\w\s]*\-', re.IGNORECASE)
+REGEX_GET_COMMAND_STRING = re.compile(r'\-{1}[\.\,\w\s]*\-', re.IGNORECASE)
 REGEX_GET_COMMAND_STACK = re.compile(r'\-\s|\s|\-', re.IGNORECASE)
 
 

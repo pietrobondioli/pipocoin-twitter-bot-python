@@ -11,6 +11,10 @@ from pipocoin.utils import commands_util
             ["command", "__", "command"]),
         ("$pipo test -command-",
             ["command"]),
+        ("$pipo test - transfer 5,0 pipo - test",
+            ["transfer", "5,0", "pipo"]),
+        ("$pipo test - transfer 5.0 pipo - test",
+            ["transfer", "5.0", "pipo"]),
     ],
 )
 def test_get_command_stack(test_input, expected):
