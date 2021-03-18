@@ -8,8 +8,9 @@ def main():
     loggers_util.log_authenticated_user(API)
     loggers_util.log_twitter_configuration(API)
     pipocoin_stream_worker.start_worker(
+        API=API,
         auth=API.auth,
         status_handler=status_controller.status_handler,
-        tracked_words=["$pipo"],
+        tracked_words=["$pipo", "$pipocoin"],
         is_Async=True
     )
