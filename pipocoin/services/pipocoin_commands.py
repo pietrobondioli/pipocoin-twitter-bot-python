@@ -82,13 +82,46 @@ def work(origin_id, command_stack):
         return messages.work.fail_error_occurred()
 
 
+def stats(origin_id, command_stack):
+    try:
+        origin_user = User(user_id=origin_id)
+
+        if not pipocoin_util.does_user_exists_by_id(origin_user):
+            return messages.stats.fail_not_registered_user()
+
+        user = user_DAO.fetch_user_by_id(
+            origin_user.get_id()
+        )
+
+        return messages.stats.success_get_stats(user)
+    except Exception as e:
+        print(e)
+        return messages.stats.fail_error_occurred()
+
+
+def balance(origin_id, command_stack):
+    try:
+        origin_user = User(user_id=origin_id)
+
+        if not pipocoin_util.does_user_exists_by_id(origin_user):
+            return messages.balance.fail_not_registered_user()
+
+        user = user_DAO.fetch_user_by_id(
+            origin_user.get_id()
+        )
+
+        return messages.balance.success_get_balance(user)
+    except Exception as e:
+        print(e)
+        return messages.balance.fail_error_occurred()
+
+
 command_list = {
     "create": create,
-    "criar": create,
     "delete": delete,
-    "deletar": delete,
     "transfer": transfer,
-    "transferir": transfer,
     "work": work,
-    "trabalhar": work,
+    "stat": stats,
+    "stats": stats,
+    "balance": balance,
 }

@@ -1,6 +1,6 @@
 def success_user_created(user):
-    return f"✅Account successfully created.\n\n🤡 Username: {user.get_name()}\n" \
-        + f"🪙 Balance: {user.get_balance()}"
+    return f"✅Account successfully created.\n\n👤 Id: {user.get_id()}\n" \
+        + f"🤡 Username: {user.get_name()}\n🪙 Balance: {user.get_balance()}"
 
 
 def fail_error_occurred():
