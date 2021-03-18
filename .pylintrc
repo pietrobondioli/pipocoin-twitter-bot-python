@@ -2,6 +2,7 @@
 disable=missing-class-docstring,
         missing-module-docstring,
         missing-function-docstring,
+        broad-except,
         invalid-name,
         import-error,
         print-statement,
